@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media-Tech</title>
+    <link rel="icon" href="police-badge.png">
+    <style>
+        /* ==================== RESET & BASE ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+ 
+        body {
+            color: #2c3e50;
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+ 
+        html {
+            scroll-behavior: smooth;
+        }
+ 
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ecf0f1;
+            padding: 15px 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+ 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+ 
+        .logo-circle {
+            width: 45px;
+            height: 45px;
+            background-color: #1abc9c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+ 
+        .logo h2 {
+            font-weight: 600;
+            color: #335372;
+            font-size: 20px;
+        }
+ 
+        nav {
+            flex: 1;
+            min-width: 300px;
+        }
+ 
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+ 
+        .nav-links a {
+            text-decoration: none;
+            color: #283d52;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+ 
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1abc9c;
+        }
+ 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1abc9c;
+            transition: width 0.3s ease;
+        }
+ 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+ 
+        .subscribe {
+            padding: 10px 20px;
+            border: 2px solid #1abc9c;
+            background: white;
+            color: #1abc9c;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+ 
+        .subscribe:hover {
+            background-color: #1abc9c;
+            color: white;
+        }
+ 
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 600px;
+            gap: 40px;
+            padding: 60px 30px;
+        }
+ 
+        .hero-left {
+            flex: 1;
+            min-width: 0;
+            padding: 0;
+        }
+ 
+        .hero-left h1 {
+            font-size: 48px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+ 
+        .hero-left p {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+ 
+        .learn-more {
+            padding: 12px 30px;
+            border: none;
+            background-color: #07f5c6;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+ 
+        .learn-more:hover {
+            background-color: #05d4a8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(7, 245, 198, 0.3);
+        }
+ 
+        .hero-right {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            justify-content: center;
+        }
+ 
+        .hero-right img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            display: block;
+        }
+ 
+        /* ==================== FEATURES SECTION ==================== */
+        .features {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 30px;
+            background-color: #ffffff;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+ 
+        .idea {
+            flex-shrink: 0;
+            min-width: 150px;
+        }
+ 
+        .idea img {
+            width: 100%;
+            height: auto;
+        }
+ 
+        .feature-content {
+            flex: 1;
+            min-width: 250px;
+        }
+ 
+        .feature-content h2 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+ 
+        .feature-content p {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+ 
+        .beans {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+ 
+        .readmore {
+            padding: 12px 25px;
+            border: none;
+            background-color: #07f5c6;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+ 
+        .readmore:hover {
+            background-color: #05d4a8;
+            transform: translateY(-2px);
+        }
+ 
+        .contact1 {
+            padding: 12px 25px;
+            border: none;
+            background-color: #283d52;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+ 
+        .contact1:hover {
+            background-color: #1a2332;
+        }
+ 
+        /* ==================== HEADING SECTION ==================== */
+        .up {
+            text-align: center;
+            margin: 60px 30px 40px;
+            font-size: 42px;
+            font-weight: 700;
+            color: #2c3e50;
+            line-height: 1.3;
+        }
+ 
+       
+        .container,
+        .container1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px 30px;
+            background-color: #ffffff;
+        }
+ 
+        .one, .two, .three, .four, .five, .six {
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #ecf0f1;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(40, 61, 82, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+ 
+        .one:hover, .two:hover, .three:hover, .four:hover, .five:hover, .six:hover {
+            box-shadow: 0 8px 20px rgba(40, 61, 82, 0.15);
+            transform: translateY(-5px);
+        }
+ 
+        .one h3, .two h3, .three h3, .four h3, .five h3, .six h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+ 
+        .one p, .two p, .three p, .four p, .five p, .six p {
+            font-size: 15px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+ 
+        .readmore1 {
+            padding: 10px 15px;
+            border: 2px solid #ecf0f1;
+            background: white;
+            color: #1abc9c;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            font-size: 14px;
+        }
+ 
+        .readmore1:hover {
+            background-color: #f8fffe;
+            border-color: #1abc9c;
+            color: #1abc9c;
+        }
+ 
+        /* ==================== CONNECTIONS SECTION ==================== */
+        .connections {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 60px 30px;
+            background-color: #f8fffe;
+            flex-wrap: wrap;
+        }
+ 
+        .connection-left {
+            flex: 1;
+            min-width: 250px;
+        }
+ 
+        .connection-left h2 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+ 
+        .connection-left p {
+            font-size: 15px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+ 
+        .connection-left button {
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+ 
+        .connection-right {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+        }
+ 
+        .connection-right img {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+        }
+ 
+        .get-in-touch {
+            padding: 12px 25px;
+            border: 2px solid #ecf0f1;
+            background-color: white;
+            color: #2c3e50;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(44, 62, 80, 0.1);
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+ 
+        .get-in-touch:hover {
+            background-color: #f0f5f4;
+            box-shadow: 0 6px 12px rgba(44, 62, 80, 0.15);
+        }
+ 
+        /* ==================== TRADES SECTION ==================== */
+        .trades {
+            background: linear-gradient(135deg, #3b5fb5 0%, #2e4a8c 100%);
+            color: white;
+            padding: 60px 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            align-items: flex-start;
+        }
+ 
+        .trade-left-1 {
+            background-color: rgba(62, 90, 156, 0.6);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+ 
+        .trade-left-1:hover {
+            background-color: rgba(62, 90, 156, 0.8);
+            transform: translateY(-5px);
+        }
+ 
+        .trades h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            letter-spacing: 1px;
+        }
+ 
+        .trades p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 400;
+        }
+ 
+        .trade-right {
+            grid-column: 1 / -1;
+            text-align: right;
+            padding: 20px 0;
+        }
+ 
+        .trade-right h1 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.3;
+        }
+ 
+        .trade-right p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-bottom: 25px;
+        }
+ 
+        .trade-down {
+            background: linear-gradient(135deg, #3b5fb5 0%, #2e4a8c 100%);
+            padding: 0;
+            display: none;
+        }
+ 
+        .trade-down-1 {
+            display: none;
+        }
+ 
+        .trade-down-2 {
+            display: none;
+        }
+ 
+        /* ==================== WORK PROCESS SECTION ==================== */
+        .left-row, .row-2, .row-3, .row-4, .row-5 {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 60px 30px;
+            flex-wrap: wrap;
+        }
+ 
+        .left-row-1, .right-row-1, .right-row-2, .right-row-3, .right-row-4, .right-row-5 {
+            flex: 1;
+            min-width: 250px;
+        }
+ 
+        .left-row h1, .row-2 h1, .row-3 h1, .row-4 h1, .row-5 h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+ 
+        .left-row img, .row-2 img, .row-3 img, .row-4 img, .row-5 img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 8px;
+        }
+ 
+        .left-row-1 h1, .right-row-1 h1, .right-row-2 h1, .right-row-3 h1, .right-row-4 h1, .right-row-5 h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+ 
+        .left-row-1 p, .right-row-1 p, .right-row-2 p, .right-row-3 p, .right-row-4 p, .right-row-5 p {
+            color: #7f8c8d;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+ 
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background-color: #12e161;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+ 
+        /* ==================== ARROW DIVIDER ==================== */
+        .arrow-divider {
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            background-color: #f8fffe;
+        }
+ 
+        .arrow-divider img {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px;
+        }
+ 
+        /* ==================== PROJECTS SECTION ==================== */
+        .projects-section {
+            background-color: #f5f5f5;
+            padding: 60px 30px;
+        }
+ 
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+ 
+        .projects-header h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            font-weight: 700;
+            flex: 1;
+            min-width: 250px;
+        }
+ 
+        .projects-btn {
+            color: white;
+            background-color: #12e161;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+ 
+        .projects-btn:hover {
+            background-color: #0dd152;
+        }
+ 
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+ 
+        .projects-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+ 
+        .projects-grid img:hover {
+            transform: scale(1.05);
+        }
+ 
+        /* ==================== CONTACT FORM SECTION ==================== */
+        .contact-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 60px 30px;
+            background-color: #f5f5f5;
+            flex-wrap: wrap;
+        }
+ 
+        .image {
+            flex: 1;
+            min-width: 250px;
+        }
+ 
+        .image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+ 
+        .validation {
+            flex: 1;
+            min-width: 250px;
+        }
+ 
+        .validation h1 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+ 
+        .validation input,
+        .validation textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+ 
+        .validation input:focus,
+        .validation textarea:focus {
+            outline: none;
+            border-color: #1abc9c;
+            box-shadow: 0 0 5px rgba(26, 188, 156, 0.3);
+        }
+ 
+        .validation textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+ 
+        /* ==================== NEWSLETTER SECTION ==================== */
+        .newsletter-section {
+            background-color: #f5f5f5;
+            padding: 50px 30px;
+            text-align: center;
+        }
+ 
+        .newsletter-section h1 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+ 
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+ 
+        .newsletter-form input {
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            min-width: 250px;
+            transition: border-color 0.3s ease;
+        }
+ 
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: #1abc9c;
+        }
+ 
+        .newsletter-btn {
+            color: white;
+            background-color: #12e161;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+ 
+        .newsletter-btn:hover {
+            background-color: #0dd152;
+        }
+ 
+        /* ==================== FOOTER ==================== */
+        footer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            padding: 50px 30px;
+            background-color: #2c3e50;
+            color: white;
+        }
+ 
+        footer h2, footer h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+ 
+        footer p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+ 
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+ 
+        footer a:hover {
+            color: #1abc9c;
+        }
+ 
+        .img-pats {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+ 
+        .img-pats img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            opacity: 0.8;
+        }
+ 
+        .img-pats img:hover {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+ 
+        /* ==================== SEND BUTTON ==================== */
+        .send-btn {
+            color: white;
+            background-color: #12e161;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+ 
+        .send-btn:hover {
+            background-color: #0dd152;
+        }
+ 
+        /* ==================== MOBILE RESPONSIVE ==================== */
+        @media (max-width: 1200px) {
+            .navbar {
+                padding: 12px 20px;
+            }
+ 
+            .logo {
+                padding-right: 20px;
+            }
+ 
+            .nav-links {
+                gap: 15px;
+            }
+ 
+            .hero {
+                min-height: 500px;
+                padding: 40px 20px;
+            }
+ 
+            .hero-left h1 {
+                font-size: 36px;
+            }
+ 
+            .hero-left p {
+                font-size: 16px;
+            }
+ 
+            .features {
+                padding: 40px 20px;
+            }
+ 
+            .up {
+                font-size: 32px;
+                margin: 40px 20px;
+            }
+ 
+            .container, .container1 {
+                padding: 20px;
+                gap: 20px;
+            }
+ 
+            .connections {
+                padding: 40px 20px;
+            }
+ 
+            .trades {
+                padding: 40px 20px;
+            }
+ 
+            .left-row, .row-2, .row-3, .row-4, .row-5 {
+                padding: 40px 20px;
+            }
+ 
+            .projects-section {
+                padding: 40px 20px;
+            }
+ 
+            .contact-section {
+                padding: 40px 20px;
+            }
+ 
+            footer {
+                gap: 20px;
+                padding: 40px 20px;
+            }
+        }
+ 
+        @media (max-width: 768px) {
+            /* Navbar Mobile */
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+ 
+            .logo {
+                padding-right: 0;
+                margin-right: 0;
+            }
+ 
+            nav {
+                width: 100%;
+                min-width: auto;
+            }
+ 
+            .nav-links {
+                gap: 10px;
+                justify-content: center;
+            }
+ 
+            .nav-links li {
+                font-size: 12px;
+            }
+ 
+            .subscribe {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+            }
+ 
+            /* Hero Section Mobile */
+            .hero {
+                flex-direction: column;
+                min-height: auto;
+                padding: 30px 15px;
+            }
+ 
+            .hero-left {
+                padding: 0;
+                text-align: center;
+            }
+ 
+            .hero-left h1 {
+                font-size: 28px;
+            }
+ 
+            .hero-left p {
+                font-size: 15px;
+            }
+ 
+            .hero-right {
+                width: 100%;
+            }
+ 
+            .hero-right img {
+                max-width: 100%;
+            }
+ 
+            /* Features Section Mobile */
+            .features {
+                flex-direction: column;
+                padding: 30px 15px;
+            }
+ 
+            .idea {
+                width: 100%;
+                min-width: auto;
+            }
+ 
+            .feature-content h2 {
+                font-size: 24px;
+                text-align: center;
+            }
+ 
+            .feature-content p {
+                text-align: center;
+            }
+ 
+            .beans {
+                justify-content: center;
+            }
+ 
+            /* Heading Mobile */
+            .up {
+                font-size: 24px;
+                padding: 0 15px;
+                text-align: center;
+            }
+ 
+            /* Services Container Mobile */
+            .container, .container1 {
+                grid-template-columns: 1fr;
+                padding: 15px;
+                gap: 20px;
+            }
+ 
+            .one, .two, .three, .four, .five, .six {
+                padding: 20px;
+            }
+ 
+            .one h3, .two h3, .three h3, .four h3, .five h3, .six h3 {
+                font-size: 18px;
+                flex-direction: column;
+                text-align: center;
+            }
+ 
+            .one p, .two p, .three p, .four p, .five p, .six p {
+                text-align: center;
+                font-size: 14px;
+            }
+ 
+            .readmore1 {
+                justify-content: center;
+            }
+ 
+            /* Connections Mobile */
+            .connections {
+                flex-direction: column;
+                padding: 30px 15px;
+            }
+ 
+            .connection-left h2 {
+                font-size: 28px;
+                text-align: center;
+            }
+ 
+            .connection-left p {
+                text-align: center;
+            }
+ 
+            .connection-left button {
+                width: 100%;
+                margin-right: 0;
+            }
+ 
+            .connection-right {
+                width: 100%;
+            }
+ 
+            /* Trades Mobile */
+            .trades {
+                grid-template-columns: 1fr;
+                padding: 30px 15px;
+                gap: 25px;
+            }
+ 
+            .trades h1 {
+                font-size: 32px;
+            }
+ 
+            .trade-right {
+                text-align: center;
+            }
+ 
+            .trade-right h1 {
+                font-size: 24px;
+            }
+ 
+            .trade-right p {
+                max-width: 100%;
+                margin-left: 0;
+            }
+ 
+            /* Work Process Mobile */
+            .left-row, .row-2, .row-3, .row-4, .row-5 {
+                flex-direction: column;
+                padding: 30px 15px;
+                gap: 20px;
+            }
+ 
+            .left-row h1, .row-2 h1, .row-3 h1, .row-4 h1, .row-5 h1 {
+                font-size: 24px;
+                text-align: center;
+            }
+ 
+            .left-row-1, .right-row-1, .right-row-2, .right-row-3, .right-row-4, .right-row-5 {
+                text-align: center;
+            }
+ 
+            .left-row-1 h1, .right-row-1 h1, .right-row-2 h1, .right-row-3 h1, .right-row-4 h1, .right-row-5 h1 {
+                text-align: center;
+            }
+ 
+            .process-number {
+                margin: 0 auto 20px;
+            }
+ 
+            .left-row img, .row-2 img, .row-3 img, .row-4 img, .row-5 img {
+                max-width: 100%;
+            }
+ 
+            .arrow-divider {
+                padding: 20px;
+            }
+ 
+            .arrow-divider img {
+                max-height: 150px;
+            }
+ 
+            /* Projects Mobile */
+            .projects-header {
+                flex-direction: column;
+                text-align: center;
+            }
+ 
+            .projects-header h1 {
+                flex: auto;
+            }
+ 
+            .projects-btn {
+                width: 100%;
+            }
+ 
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+ 
+            /* Contact Form Mobile */
+            .contact-section {
+                flex-direction: column;
+                padding: 30px 15px;
+            }
+ 
+            .image {
+                width: 100%;
+                min-width: auto;
+            }
+ 
+            .validation {
+                width: 100%;
+                min-width: auto;
+            }
+ 
+            .validation h1 {
+                font-size: 24px;
+                text-align: center;
+            }
+ 
+            .validation input,
+            .validation textarea {
+                max-width: 100%;
+            }
+ 
+            /* Newsletter Mobile */
+            .newsletter-section {
+                padding: 30px 15px;
+            }
+ 
+            .newsletter-section h1 {
+                font-size: 24px;
+            }
+ 
+            .newsletter-form {
+                flex-direction: column;
+            }
+ 
+            .newsletter-form input {
+                min-width: 100%;
+            }
+ 
+            .newsletter-btn {
+                width: 100%;
+            }
+ 
+            /* Footer Mobile */
+            footer {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 30px 15px;
+            }
+ 
+            .img-pats {
+                justify-content: center;
+            }
+        }
+ 
+        @media (max-width: 480px) {
+            /* Navbar Mobile Small */
+            .navbar {
+                padding: 8px 10px;
+            }
+ 
+            .logo h2 {
+                font-size: 16px;
+            }
+ 
+            .logo-circle {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+ 
+            .nav-links {
+                gap: 8px;
+            }
+ 
+            .nav-links a {
+                font-size: 12px;
+            }
+ 
+            /* Hero Mobile Small */
+            .hero {
+                padding: 20px 10px;
+            }
+ 
+            .hero-left h1 {
+                font-size: 22px;
+            }
+ 
+            .hero-left p {
+                font-size: 14px;
+            }
+ 
+            .learn-more {
+                width: 100%;
+            }
+ 
+            /* Features Mobile Small */
+            .features {
+                padding: 20px 10px;
+            }
+ 
+            .feature-content h2 {
+                font-size: 20px;
+            }
+ 
+            .feature-content p {
+                font-size: 13px;
+            }
+ 
+            .beans {
+                flex-direction: column;
+            }
+ 
+            .readmore, .contact1 {
+                width: 100%;
+            }
+ 
+            /* Heading Mobile Small */
+            .up {
+                font-size: 20px;
+                padding: 0 10px;
+            }
+ 
+            /* Services Mobile Small */
+            .container, .container1 {
+                padding: 10px;
+            }
+ 
+            .one, .two, .three, .four, .five, .six {
+                padding: 15px;
+            }
+ 
+            .one h3, .two h3, .three h3, .four h3, .five h3, .six h3 {
+                font-size: 16px;
+            }
+ 
+            .one p, .two p, .three p, .four p, .five p, .six p {
+                font-size: 13px;
+            }
+ 
+            /* Connections Mobile Small */
+            .connections {
+                padding: 20px 10px;
+            }
+ 
+            .connection-left h2 {
+                font-size: 22px;
+            }
+ 
+            /* All buttons Mobile Small */
+            button {
+                padding: 10px 15px !important;
+                font-size: 13px !important;
+            }
+ 
+            /* Text Mobile Small */
+            h1 {
+                font-size: 20px !important;
+            }
+ 
+            p {
+                font-size: 12px !important;
+            }
+        }
+ 
+        /* ==================== UTILITY CLASSES ==================== */
+        .text-center {
+            text-align: center;
+        }
+ 
+        .text-left {
+            text-align: left;
+        }
+ 
+        .text-right {
+            text-align: right;
+        }
+ 
+        .mt-20 {
+            margin-top: 20px;
+        }
+ 
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+ 
+        .pt-20 {
+            padding-top: 20px;
+        }
+ 
+        .pb-20 {
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-circle">M</div>
+            <h2>METRIC</h2>
+        </div>
+ 
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="active">HOME</a></li>
+                <li><a href="#" class="abt">About Us</a></li>
+                <li><a href="#" class="service">Service</a></li>
+                <li><a href="#" class="pages">Pages</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </nav>
+        <button class="subscribe">SUBSCRIBE</button>
+    </header>
+ 
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Welcome to Media-Tech</h1>
+            <p>Your one-stop solution for all your media needs.</p>
+            <button class="learn-more">LEARN MORE</button>
+        </div>
+        <div class="hero-right">
+            <img src="image.png" alt="Hero Image">
+        </div>
+    </section>
+ 
+    <section class="features">
+        <div class="idea">
+            <img src="idea.png" alt="Idea Icon">
+        </div>
+        <div class="feature-content">
+            <h2>Creative challenges are our passion</h2>
+            <p>Our designers and developers work closely together to build a creative and positive working environment. Functionality is as important to us as aesthetics.</p>
+        </div>
+        <div class="beans">
+            <button class="readmore">READ MORE</button>
+            <button class="contact1">CONTACT</button>
+        </div>
+    </section>
+ 
+    <div class="up"><h1>We provide a wide range of creative services</h1></div>
+ 
+    <section class="container">
+        <div class="one">
+            <h3><img src="brush.png" alt="Brush Icon" height="55px" width="55px" style="background-color: aquamarine; border-radius: 25px; padding: 5px; margin: 0;"><br>Web Design & Branding</h3>
+            <p>A great brand combines design and messaging to evoke emotion in your customers and drive strategy.</p>
+            <a href="#" class="readmore1">READ MORE <img src="images/arrow_arrows_back_direction_left_navigation_right_icon_123236.png" alt="Arrow Icon" height="15px" width="15px"></a>
+        </div>
+        <div class="two">
+            <h3><img src="images/coding_icon-icons.com_64696.png" alt="coding-icon" height="55px" width="55px" style="background-color: aquamarine; border-radius: 25px; padding: 5px; margin: 0;"><br>Design</h3>
+            <p>Rich experience plus unlimited imagination create our successful service discovered by clients.</p>
+            <a href="#" class="readmore1">READ MORE <img src="images/arrow_arrows_back_direction_left_navigation_right_icon_123236.png" alt="Arrow Icon" height="15px" width="15px"></a>
+        </div>
+        <div class="four">
+            <h3><img src="images/settings_icon-icons.com_49858.png" alt="Video Icon" height="55px" width="55px" style="background-color: aquamarine; border-radius: 25px; padding: 5px; margin: 0;"><br>Video Production</h3>
+            <p>Creating and handling professional video is our strong point. It plays a major role in your digital business strategy</p>
+            <a href="#" class="readmore1">READ MORE <img src="images/arrow_arrows_back_direction_left_navigation_right_icon_123236.png" alt="Arrow Icon" height="15px" width="15px"></a>
+        </div>
+    </section>
+ 
+    <section class="container1">
+        <div class="three">
+            <h3><img src="images/symbolic.png" alt="symbolic-icon" height="55px" width="55px" style="background-color: aquamarine; border-radius: 25px; padding: 5px; margin: 0;"><br>SEO</h3>
+            <p>We provide everything your site needs to perform at its highest capabili ties on the major search engines.</p>
+            <a href="#" class="readmore1">READ MORE <img src="images/arrow_arrows_back_direction_left_navigation_right_icon_123236.png" alt="Arrow Icon" height="15px" width="15px"></a>
+        </div>
+        <div class="five">
+            <h3><img src="images/digitalmarketing.png" alt="analytics-icon" height="55px" width="55px" style="background-color: aquamarine; border-radius: 25px; padding: 5px; margin: 0;"><br>Digital Marketing</h3>
+            <p>With digital marketing, your business can expand into new areas and achieve tremendous accomplishments.</p>
+            <a href="#" class="readmore1">READ MORE <img src="images/arrow_arrows_back_direction_left_navigation_right_icon_123236.png" alt="Arrow Icon" height="15px" width="15px"></a>
+        </div>
+        <div class="six">
+            <h3><img src="msg.png" alt="Development Icon" height="55px" width="55px" style="background-color: aquamarine; border-radius: 25px; padding: 5px; margin: 0;"><br>Infographics</h3>
+            <p>Turn your data into captivating artwork that will keep your audience engaged. Our team can help you with it.</p>
+            <a href="#" class="readmore1">READ MORE <img src="images/arrow_arrows_back_direction_left_navigation_right_icon_123236.png" alt="Arrow Icon" height="15px" width="15px"></a>
+        </div>
+    </section>
+ 
+    <section class="connections">
+        <div class="connection-left">
+            <h2 id="text">If you have any<br>questions, please<br>contact us</h2>
+            <p>Our professional support team try to do their best to provide you with high-quality consultations concerning any questions about our services.</p>
+            <button class="learn-more">READ MORE</button>
+            <button class="get-in-touch">GET IN TOUCH</button>
+        </div>
+        <div class="connection-right">
+            <img src="connectionakka.png" alt="Contact Image">
+        </div>
+    </section>
+ 
+    <section class="trades">
+        <div class="trade-left-1">
+            <h1>1180+</h1>
+            <p>Projects completed by our team of web designers and developers</p>
+        </div>
+        <div class="trade-left-1">
+            <h1>56</h1>
+            <p>Experts in web design, branding, and digital marketing solutions.</p>
+        </div>
+        <div class="trade-left-1">
+            <h1>2000+</h1>
+            <p>Customers who were satisfied with our work.</p>
+        </div>
+        <div class="trade-left-1">
+            <h1>100%</h1>
+            <p>Positive reviews sent by our first-time and regular customers.</p>
+        </div>
+        <div class="trade-right" style="align-items: center; justify-content: center;">
+            <h1>Why choose our company for your projects?</h1>
+            <p>We are a team of professional and enthusiastic people, who like what they do and are always in the process of growing and improving their skills.</p>
+            <button class="get-in-touch">GET QUOTE</button>
+        </div>
+    </section>
+ 
+    <section class="left-row">
+        <div class="left-row-1">
+            <h1>Our work process</h1>
+            <img src="images/meet-1.webp" alt="Work Process Image" style="padding-top: 30px;">
+        </div>
+        <div class="right-row-1">
+            <div class="process-number">01</div>
+            <h1>Meeting With The Customer</h1>
+            <p>The first meeting is very important to get acquainted and discuss the main ideas of the project.</p>
+        </div>
+    </section>
+ 
+    <div class="arrow-divider">
+        <img src="./images/arrow1.png" alt="Arrow 1">
+    </div>
+ 
+    <section class="row-2">
+        <img src="images/section-decorate-img-3.webp" alt="Work Process Image">
+        <div class="left-row-1">
+            <div class="process-number">02</div>
+            <h1>We Consider And Analyze The Work Plan</h1>
+            <p>When we understand the main ideas, we proceed to discuss the work plan and analyze it.</p>
+        </div>
+        <img src="images/meet-2.webp" alt="teamwork">
+    </section>
+ 
+    <div class="arrow-divider">
+        <img src="./images/arrow2.webp" alt="Arrow 2">
+    </div>
+ 
+    <section class="row-3" style="margin: left 50px;">
+        <img src="images/meet-3.webp" alt="meet3">
+        <div class="right-row-3">
+            <div class="process-number">03</div>
+            <h1>Work Hard On The Project</h1>
+            <p>Our professional team starts to work on your project and embody all details of the initial concept.</p>
+        </div>
+    </section>
+ 
+    <div class="arrow-divider">
+        <img src="./images/arrow-3.webp" alt="Arrow 3">
+    </div>
+ 
+    <section class="row-4">
+        <div class="right-row-4">
+            <div class="process-number">04</div>
+            <h1>Once Again We Analyze And Check Everything</h1>
+            <p>We meet, analyze and check the work we done on the project and make any necessary changes.</p>
+        </div>
+        <img src="images/meet-4.png" alt="meet4">
+    </section>
+ 
+    <div class="arrow-divider">
+        <img src="./images/arrow4.webp" alt="Arrow 4">
+    </div>
+ 
+    <section class="row-5">
+        <img src="images/meet-5.webp" alt="meet5">
+        <div class="right-row-5">
+            <div class="process-number">05</div>
+            <h1>We Finish The Project And Send It To The Customer</h1>
+            <p>After we make sure that everything is perfect, we deliver the project to the customer and get feedback.</p>
+        </div>
+    </section>
+ 
+    <section class="projects-section">
+        <div class="projects-header">
+            <h1>Recent projects we have<br>worked on</h1>
+            <button class="projects-btn">ALL PROJECTS</button>
+        </div>
+        <div class="projects-grid">
+            <img src="images/drag.jpg" alt="Project 1">
+            <img src="images/drag2.jpg" alt="Project 2">
+            <img src="images/drag3.jpg" alt="Project 3">
+        </div>
+    </section>
+ 
+    <section class="contact-section">
+        <div class="image">
+            <img src="images/validation1.png" alt="validation">
+        </div>
+        <div class="validation">
+            <h1>Get in touch with our team</h1>
+            <input type="text" placeholder="Your Name">
+            <input type="number" placeholder="Your phone number">
+            <textarea placeholder="Message"></textarea>
+            <button class="send-btn">SEND</button>
+        </div>
+    </section>
+ 
+    <section class="newsletter-section">
+        <h1>Subscribe to our news and<br>regular updates</h1>
+        <div class="newsletter-form">
+            <input type="email" placeholder="Your E-mail">
+            <button class="newsletter-btn">SUBSCRIBE</button>
+        </div>
+    </section>
+ 
+    <footer>
+        <div class="part-1">
+            <h4><span class="logo-circle">M</span>METRIC</h4>
+            <p>Phone: +1 (045) - 224 - 12 - 67<br>Mail: info@demolink.org</p>
+        </div>
+        <div class="part-2">
+            <h2>Services</h2>
+            <p>Design & Branding</p>
+            <p>Graphic Design</p>
+            <p>Video Production</p>
+            <p>SEO</p>
+            <p>Digital Marketing</p>
+        </div>
+        <div class="part-3">
+            <h2>About company</h2>
+            <p>About us</p>
+            <p>Team</p>
+            <p>Portfolio</p>
+            <p>Pricing</p>
+        </div>
+        <div class="part-4">
+            <h2>Our social networks</h2>
+            <p>Join us in the social networks to receive the latest news and updates.</p>
+            <div class="img-pats">
+                <img src="images/video (1).png" alt="YouTube">
+                <img src="images/facebook-logo.png" alt="Facebook">
+                <img src="images/instagram.png" alt="Instagram">
+                <img src="images/twitter.png" alt="Twitter">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+ 
